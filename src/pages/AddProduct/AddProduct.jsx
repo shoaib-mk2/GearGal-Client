@@ -35,6 +35,7 @@ const AddProduct = () => {
                         confirmButtonText: 'Cool'
                     })
                 }
+                form.reset(); // reset form value after successfully added the product to the DB
             })
     }
 
@@ -65,7 +66,7 @@ const AddProduct = () => {
                                 <span className="label-text">Brand Name</span>
                             </label>
                             <select className="select select-bordered w-full max-w-xs" name="brand" required>
-                                <option value="" disabled selected>What's the car brand?</option>
+                                <option value="" selected>What's the car brand?</option>
                                 <option value="BMW">BMW</option>
                                 <option value="Ferrari">Ferrari</option>
                                 <option value="Ford">Ford</option>
@@ -79,7 +80,7 @@ const AddProduct = () => {
                                 <span className="label-text">Car Type</span>
                             </label>
                             <select className="select select-bordered w-full max-w-xs" name="type" required>
-                                <option value="" disabled selected>What's the car type?</option>
+                                <option value="" selected>What's the car type?</option>
                                 <option value="Luxury">Luxury</option>
                                 <option value="Sport">Sport</option>
                                 <option value="Suv">Suv</option>
@@ -103,7 +104,7 @@ const AddProduct = () => {
                                 <span className="label-text">Car Rating</span>
                             </label>
                             <select className="select select-bordered w-full max-w-xs" name="rating" required>
-                                <option value="" disabled selected>What's the rating of the car?</option>
+                                <option value="" selected>What's the rating of the car?</option>
                                 <option value="5">5</option>
                                 <option value="4">4</option>
                                 <option value="3">3</option>
