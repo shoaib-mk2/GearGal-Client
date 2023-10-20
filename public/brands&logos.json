@@ -1,0 +1,26 @@
+[
+    {
+        "brand": "BMW",
+        "logo": "https://i.ibb.co/KLRpF35/bmw-logo.png"
+    },
+    {
+        "brand": "Ferrari",
+        "logo": "https://i.ibb.co/znWwSsx/ferrari-logo.png"
+    },
+    {
+        "brand": "Ford",
+        "logo": "https://i.ibb.co/THfsnfT/ford-logo.png"
+    },
+    {
+        "brand": "Audi",
+        "logo": "https://i.ibb.co/sWYXdjC/audi-logo.png"
+    },
+    {
+        "brand": "Porsche",
+        "logo": "https://i.ibb.co/FnLmRmJ/porsche-logo.png"
+    },
+    {
+        "brand": "Mercedes",
+        "logo": "https://i.ibb.co/9wyZnmn/mercedes-logo.png"
+    }
+]
