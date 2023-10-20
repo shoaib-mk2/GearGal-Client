@@ -6,8 +6,8 @@ import { MdOutlineSupportAgent } from "react-icons/md";
 
 const WhyChooseUs = () => {
     return (
-        <div className="bg-[#f3f8fb] p-12 mb-16">
-            <div className="w-4/5 mx-auto lg:flex gap-6">
+        <div className="bg-[#f3f8fb] p-12 md:mb-16">
+            <div className="md:w-4/5 mx-auto lg:flex gap-6">
                 <div>
                     <p className="text-lg font-bold text-[#ff7700]">Why Choose Us</p>
                     <h2 className="text-4xl mb-5"><span className="border-b-4 border-[#ff7700]">We</span> Provide Best Services</h2>
