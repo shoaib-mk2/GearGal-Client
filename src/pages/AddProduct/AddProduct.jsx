@@ -1,4 +1,4 @@
-
+import Swal from 'sweetalert2'
 
 const AddProduct = () => {
     const handleAddProduct = e => {
@@ -14,6 +14,28 @@ const AddProduct = () => {
 
         const newProduct = { image, name, brand, type, price, description, rating }
         console.log(newProduct);
+
+        // send data to the server
+        fetch('http://localhost:5000/products', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newProduct)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                // showing sweet alert after successfully added the product to the DB 
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Product Added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+            })
     }
 
     return (
@@ -48,7 +70,7 @@ const AddProduct = () => {
                                 <option value="Ferrari">Ferrari</option>
                                 <option value="Ford">Ford</option>
                                 <option value="Audi">Audi</option>
-                                <option value="Porsche">Porsche</option>
+                                {/* <option value="Porsche">Porsche</option> */}
                                 <option value="Mercedes">Mercedes</option>
                             </select>
                         </div>
