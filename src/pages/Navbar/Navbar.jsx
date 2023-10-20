@@ -10,7 +10,7 @@ const Navbar = () => {
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "border-b-2 border-[#ff7700] font-bold text-[#ff7700]" : "font-bold "
                 }>
-                HOME
+                Home
             </NavLink>
         </li>
         <li>
@@ -34,7 +34,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 md:w-4/5 md:mx-auto">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
