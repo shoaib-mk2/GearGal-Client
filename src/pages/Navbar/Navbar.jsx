@@ -47,7 +47,7 @@ const Navbar = () => {
                 <NavLink to="/" className="text-2xl md:text-4xl font-extrabold"><span className="text-[#ff7700]">G</span>ear<span className="text-[#ff7700]">G</span>al</NavLink>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal px-1 gap-4">
                     {navLinks}
                 </ul>
             </div>
