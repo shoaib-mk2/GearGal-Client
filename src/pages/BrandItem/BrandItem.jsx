@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const BrandItem = ({ productByBrand }) => {
@@ -19,7 +20,9 @@ const BrandItem = ({ productByBrand }) => {
                     </div>
                     <div className="card-actions">
                         <button className="btn bg-black text-white hover:text-black flex-1 font-bold">View Details</button>
-                        <button className="btn bg-[#ff7700] flex-1 font-bold">Update</button>
+                        <Link to={`/updateProduct/${_id}`}>
+                            <button className="btn bg-[#ff7700] flex-1 font-bold">Update</button>
+                        </Link>
                     </div>
                 </div>
             </div>
