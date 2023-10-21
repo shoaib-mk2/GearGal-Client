@@ -89,7 +89,6 @@ const Login = () => {
                                 <button className="btn text-white hover:text-black bg-[#ff7700]">Log In</button>
                             </div>
                         </form>
-                        {/* <p onClick={handleGoogleSignIn} className="px-8 pb-4">Sign in with <Link to="/register"><button className="btn btn-link">Google</button></Link></p> */}
                         <div className="flex items-center justify-center gap-2 mb-8 cursor-pointer">
                             <BsGoogle className="text-[#ff7700]"></BsGoogle>
                             <p onClick={handleGoogleSignIn}>Log in with <span className="font-bold text-[#ff7700]">Google</span></p>

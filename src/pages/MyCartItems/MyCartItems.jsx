@@ -1,50 +1,46 @@
-import { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
-import { AuthContext } from "../../provider/AuthProvider";
 
+const MyCartItems = ({ cartItem, cartItems, setCartItems }) => {
 
-const BrandItemDetails = () => {
+    const { _id, image, name, brand, type, price, description, rating } = cartItem;
 
-    const productById = useLoaderData();
-    const { _id, image, name, brand, type, price, description, rating } = productById;
-    const { user } = useContext(AuthContext);
+    const handleDeleteCartItem = id => {
 
-    // add cart items
-    const handleAddCartItem = () => {
-
-        const userEmail = user.email;
-
-        const newCartItem = { userEmail, image, name, brand, type, price, description, rating }
-        console.log(newCartItem);
-
-        // send data to the server
-        fetch('http://localhost:5000/carts', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(newCartItem)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                // showing sweet alert after successfully added the product to the DB 
-                if (data.insertedId) {
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Product Added to the Cart',
-                        icon: 'success',
-                        confirmButtonText: 'Cool'
+        console.log(id);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/carts/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your product has been deleted.',
+                                'success'
+                            )
+                            const remaining = cartItems.filter(ci => ci._id !== id);
+                            setCartItems(remaining);
+                        }
                     })
-                }
-            })
+            }
+        })
     }
 
     return (
-        <div className='w-4/5 mx-auto min-h-screen lg:flex lg:items-center'>
+        <div className='w-4/5 mx-auto my-14'>
             <div className="hero max-h-max max-w-max mx-auto mb-8 bg-base-200 shadow-2xl shadow-[#ff7700] rounded-2xl">
-                <div className="hero-content flex-col lg:flex-row-reverse">
+                <div className="hero-content flex-col lg:flex-row">
                     <img src={image} className="lg:max-w-2xl" />
                     <div>
                         <h1 className="text-3xl md:text-5xl font-extrabold">{name}</h1>
@@ -71,7 +67,7 @@ const BrandItemDetails = () => {
 
                         </div>
                         <p className="py-6 md:text-xl">{description}</p>
-                        <button onClick={() => handleAddCartItem()} className="btn btn-block bg-[#ff7700] text-lg font-bold text-white hover:text-black">Add to cart</button>
+                        <button onClick={() => handleDeleteCartItem(_id)} className="btn btn-block bg-red-700 text-lg font-bold text-white hover:text-black">Delete from cart</button>
                     </div>
                 </div>
             </div>
@@ -79,4 +75,4 @@ const BrandItemDetails = () => {
     );
 };
 
-export default BrandItemDetails;
+export default MyCartItems;
