@@ -5,26 +5,36 @@ import BrandItemsBanner from "./BrandItemsBanner";
 
 
 const BrandItems = () => {
-    const allProducts = useLoaderData();
-    const [filterProducts, setFilterProducts] = useState([]);
-    const params = useParams();
-    useEffect(() => {
-        const filterProductsByBrand = allProducts.filter(product => product.brand === params.brand);
-        setFilterProducts(filterProductsByBrand);
-    }, [params.brand, allProducts])
+    // const allProducts = useLoaderData();
+    // const [filterProducts, setFilterProducts] = useState([]);
+    // const params = useParams();
+    // useEffect(() => {
+    //     const filterProductsByBrand = allProducts.filter(product => product.brand === params.brand);
+    //     setFilterProducts(filterProductsByBrand);
+    // }, [params.brand, allProducts])
 
-    console.log(filterProducts);
+    const productsByBrand = useLoaderData();
+
+    console.log(productsByBrand);
 
     return (
         <div className="">
 
-            <BrandItemsBanner filterProducts={filterProducts}></BrandItemsBanner>
+            <BrandItemsBanner productsByBrand={productsByBrand}></BrandItemsBanner>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 w-11/12 md:w-4/5 mx-auto md:my-12">
+                {
+                    productsByBrand.map(productByBrand => <BrandItem key={productByBrand._id} productByBrand={productByBrand}></BrandItem>)
+                }
+            </div>
+
+            {/* <BrandItemsBanner filterProducts={filterProducts}></BrandItemsBanner>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 w-11/12 md:w-4/5 mx-auto md:my-12">
                 {
                     filterProducts.map(filterProduct => <BrandItem key={filterProduct._id} filterProduct={filterProduct}></BrandItem>)
                 }
-            </div>
+            </div> */}
         </div>
     );
 };

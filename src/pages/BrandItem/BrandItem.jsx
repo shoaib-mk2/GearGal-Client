@@ -1,8 +1,8 @@
 
 
-const BrandItem = ({ filterProduct }) => {
+const BrandItem = ({ productByBrand }) => {
 
-    const { _id, image, name, brand, type, price, description, rating } = filterProduct;
+    const { _id, image, name, brand, type, price, description, rating } = productByBrand;
 
 
     return (
