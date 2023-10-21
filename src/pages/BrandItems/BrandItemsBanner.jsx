@@ -25,7 +25,7 @@ const BrandItemsBanner = ({ productsByBrand }) => {
             </div>
             <div className="flex justify-center w-full py-2 gap-2">
                 {
-                    productsByBrand.map((productByBrand, idx) => <a key={productByBrand._id} href={`#${idx + 1}`} className="btn btn-xs">{idx + 1}</a>)
+                    productsByBrand.map((productByBrand, idx) => <a key={productByBrand._id} href={`#${idx + 1}`} className="btn btn-sm text-[white] hover:text-black bg-[#ff7700]">{idx + 1}</a>)
                 }
             </div>
         </div>
