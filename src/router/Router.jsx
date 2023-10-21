@@ -8,6 +8,7 @@ import Register from "../pages/Register/Register";
 import BrandItems from "../pages/BrandItems/BrandItems";
 import UpdateProduct from "../pages/UpdateProduct/UpdateProduct";
 import BrandItemDetails from "../pages/BrandItemDetails/BrandItemDetails";
+import PrivateRoute from "../pages/Routes/PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -22,11 +23,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "/addProduct",
-                element: <AddProduct></AddProduct>
+                element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
             },
             {
                 path: "/updateProduct/:id",
-                element: <UpdateProduct></UpdateProduct>,
+                element: <PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/products/id/${params.id}`)
             },
             {
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/brandItemDetails/:id",
-                element: <BrandItemDetails></BrandItemDetails>,
+                element: <PrivateRoute><BrandItemDetails></BrandItemDetails></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/products/id/${params.id}`)
             },
             {

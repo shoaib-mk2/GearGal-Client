@@ -38,6 +38,7 @@ const Login = () => {
             })
     }
 
+    // sign in with google
     const handleGoogleSignIn = () => {
         signInWithGoogle()
             .then(result => {
@@ -64,7 +65,8 @@ const Login = () => {
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col">
                     <div className="text-center">
-                        <h1 className="text-3xl md:text-5xl font-bold mb-5 md:mb-10">Welcome to EventPro</h1>
+                        <h1 className="text-3xl md:text-5xl font-bold mb-5 md:mb-10">Log in to your account</h1>
+                        <p>Welcome back! Sign in to your account</p>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form className="card-body" onSubmit={handleLogin}>
@@ -84,16 +86,16 @@ const Login = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary text-white bg-[#007aff]">Login</button>
+                                <button className="btn text-white hover:text-black bg-[#ff7700]">Log In</button>
                             </div>
                         </form>
                         {/* <p onClick={handleGoogleSignIn} className="px-8 pb-4">Sign in with <Link to="/register"><button className="btn btn-link">Google</button></Link></p> */}
                         <div className="flex items-center justify-center gap-2 mb-8 cursor-pointer">
-                            <BsGoogle className="text-[#007aff]"></BsGoogle>
-                            <p onClick={handleGoogleSignIn}>Log in with <span className="font-bold text-[#007aff]">Google</span></p>
+                            <BsGoogle className="text-[#ff7700]"></BsGoogle>
+                            <p onClick={handleGoogleSignIn}>Log in with <span className="font-bold text-[#ff7700]">Google</span></p>
                         </div>
                     </div>
-                    <p className="px-8 pb-4">New here? Please <Link className="text-[#007aff] font-bold" to="/register">Register</Link></p>
+                    <p className="px-8 pb-4">New here? Please <Link className="text-[#ff7700] font-bold" to="/register">Register</Link></p>
                 </div>
             </div>
             <ToastContainer></ToastContainer>
