@@ -19,9 +19,11 @@ const BrandItem = ({ productByBrand }) => {
                         <div className="badge badge-outline border-[#ff7700] font-bold">{rating} / 5</div>
                     </div>
                     <div className="card-actions">
-                        <button className="btn bg-black text-white hover:text-black flex-1 font-bold">View Details</button>
-                        <Link to={`/updateProduct/${_id}`}>
-                            <button className="btn bg-[#ff7700] flex-1 font-bold">Update</button>
+                        <Link className="btn bg-black text-white hover:text-black flex-1 font-bold" to={`/brandItemDetails/${_id}`}>
+                            View Details
+                        </Link>
+                        <Link className="btn bg-[#ff7700] flex-1 font-bold" to={`/updateProduct/${_id}`}>
+                            Update
                         </Link>
                     </div>
                 </div>
